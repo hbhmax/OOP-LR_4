@@ -17,7 +17,6 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
-# Изменяем на INTERFACE библиотеку
 add_library(${CMAKE_PROJECT_NAME}_lib INTERFACE)
 
 target_include_directories(${CMAKE_PROJECT_NAME}_lib
@@ -31,5 +30,6 @@ enable_testing()
 
 add_executable(tests test/tests.cpp)
 target_link_libraries(tests PRIVATE ${CMAKE_PROJECT_NAME}_lib gtest_main)
+
 
 add_test(NAME FiguresTests COMMAND tests)
